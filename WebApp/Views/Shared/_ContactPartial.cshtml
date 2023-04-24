@@ -1,0 +1,25 @@
+﻿@model ContactFormModel
+
+
+<section class="contact-form">
+    <div class="container">
+        <h1>Kontakta oss</h1>
+        <form method="post">
+            <div class="contact-form-name">
+                <input asp-for="CustomerName" type="text" placeholder="Your Name">
+                <div class="error">Ange ett giltigt användarnamn</div>
+            </div>
+            <div class="contact-form-email">
+                <input asp-for="CustomerEmail" type="email" placeholder="Your Mail">
+                <div class="error">Ange en giltig mejl-address</div>
+            </div>
+            <div class="contact-form-comments">
+                <textarea asp-for="Message" placeholder="Comments"></textarea>
+                <div class="error">Skriv ett meddelande klicka sedan på skicka</div>
+            </div>
+
+            <button class="btn-theme" type="submit">Skicka</button>
+        </form>
+    </div>
+</section>
+    

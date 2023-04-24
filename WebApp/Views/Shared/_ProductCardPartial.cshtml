@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ProductModel>
+@{
+    int counter = 0;
+}
+@foreach(var item in Model)
+{
+ if (item.Tag == "Featured" && counter < 8)
+    {   
+    <div class="col">
+        <div class="card">
+            <div class="card-img-container">
+                    <img src="https://www.mrporter.com/variants/images/4068790126411224/in/w2000_q60.jpg" class="card-img-top" alt="..." />
+                <div class="card-menu d-xl-none">
+                <button class="menu-link"><i class="fa-regular fa-heart"></i></button>
+                <button class="menu-link"><i class="fa-regular fa-code-compare"></i></button>
+                <button class="menu-link"><i class="fa-regular fa-bag-shopping"></i></button>
+                </div>
+                    <a asp-controller="Product" asp-action="Details" asp-route-articleNumber="@item.ArticleNumber" class="btn btn-theme w-100 d-xl-none">QUICK VIEW</a>
+            </div>
+
+                <div class="card-body">
+                <p class="card-category">@item.Tag</p>
+                <h5 class="card-title">@item.Name</h5>
+                <partial name="_RatingPartial" />
+                <p class="card-price">@item.Price</p>
+            </div>
+        
+        </div>
+    </div>
+    counter++;
+    }
+}
